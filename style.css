@@ -465,20 +465,23 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
 }
 
-.about__pottery-icon {
-  width: min(280px, 80vw);
-  aspect-ratio: 1;
-  background: var(--surface-high);
+/* Real photo of Lou */
+.about__photo-wrap {
+  width: min(360px, 88vw);
   border-radius: var(--radius-xl);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  /* Soft ambient shadow — no hard borders */
-  box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(224,146,255,0.08);
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.45),
+              0 0 0 2px rgba(189,255,0,0.18);
+  position: relative;
 }
 
-.potter-svg { width: 100%; height: 100%; }
+.about__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
 
 .about__text { max-width: 540px; }
 
@@ -589,6 +592,237 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-primary);
   line-height: 1.65;
 }
+
+/* ─────────────────────────────────────────────── */
+/*  PHOTO GALLERY (inside .work)                   */
+/* ─────────────────────────────────────────────── */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.gallery__item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface-highest);
+  position: relative;
+}
+
+.gallery__item--tall {
+  grid-row: span 2;
+}
+
+.gallery__item--wide {
+  grid-column: span 2;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+  min-height: 200px;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.05);
+}
+
+/* ─────────────────────────────────────────────── */
+/*  SCHEDULE / CALENDAR                            */
+/* ─────────────────────────────────────────────── */
+.schedule {
+  margin-top: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.schedule__title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+}
+
+.schedule__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.schedule__item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+  background: var(--surface-high);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.4rem;
+  outline: 1px solid rgba(224,146,255,0.1);
+  transition: outline-color var(--transition), transform var(--transition);
+}
+
+.schedule__item:hover {
+  outline-color: rgba(189,255,0,0.2);
+  transform: translateX(4px);
+}
+
+.schedule__item--featured {
+  background: var(--surface-highest);
+  outline-color: rgba(189,255,0,0.22);
+}
+
+.schedule__date {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+
+.schedule__name {
+  font-weight: 700;
+  font-size: 0.97rem;
+  color: var(--text-white);
+  margin-bottom: 0.2rem;
+}
+
+.schedule__meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.schedule__tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(255,109,141,0.15);
+  color: var(--secondary);
+  border-radius: var(--radius-pill);
+  padding: 0.25em 0.85em;
+  white-space: nowrap;
+  border: 1px solid rgba(255,109,141,0.3);
+}
+
+.schedule__tag--featured {
+  background: rgba(189,255,0,0.12);
+  color: var(--primary);
+  border-color: rgba(189,255,0,0.3);
+}
+
+.schedule__note {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.schedule__note a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ─────────────────────────────────────────────── */
+/*  SPECIAL EVENTS                                 */
+/* ─────────────────────────────────────────────── */
+.events {
+  margin-top: 4rem;
+}
+
+.events__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.event-card {
+  background: var(--surface-high);
+  border-radius: var(--radius-xl);
+  padding: 1.6rem 1.5rem;
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  outline: 1px solid rgba(224,146,255,0.1);
+  transition: transform var(--transition), box-shadow var(--transition), outline-color var(--transition);
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  outline-color: rgba(189,255,0,0.2);
+}
+
+.event-card__icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.event-card h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--text-white);
+  margin-bottom: 0.4rem;
+}
+
+.event-card p {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  line-height: 1.62;
+}
+
+.event-card a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ─────────────────────────────────────────────── */
+/*  CONTACT EMAIL LINK                             */
+/* ─────────────────────────────────────────────── */
+.contact__email {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color var(--transition);
+}
+
+.contact__email:hover { color: var(--secondary); }
+
+/* Location links */
+.location__item a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+.location__item a:hover { color: var(--secondary); }
 
 /* ─────────────────────────────────────────────── */
 /*  CLASSES                                        */
@@ -1057,6 +1291,24 @@ a { color: inherit; text-decoration: none; }
   .form-row { grid-template-columns: 1fr; }
 
   .about__stats { gap: 1.5rem; }
+
+  /* Gallery — 2 col on mobile */
+  .gallery__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .gallery__item--tall { grid-row: span 1; }
+  .gallery__item--wide { grid-column: span 2; }
+
+  /* Schedule — stack */
+  .schedule__item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .schedule__tag { align-self: flex-start; }
+
+  /* Events — stack */
+  .events__grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
