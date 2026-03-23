@@ -553,7 +553,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .work-card--wide {
-  grid-column: span 2;
+  grid-column: span 3;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 0 1.75rem;
