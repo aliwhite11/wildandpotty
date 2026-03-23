@@ -624,13 +624,14 @@ a { color: inherit; text-decoration: none; }
   border-radius: 18px;
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  width: min(190px, 100%);
+  width: min(280px, 100%);
 }
 
 .studio__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
   transition: transform 0.5s ease;
 }
